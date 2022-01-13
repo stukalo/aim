@@ -10,15 +10,16 @@ export const retry = (
   retries: number
 ): Promise<any> =>
   new Promise((resolve, reject) => {
-    return operation()
+    operation()
       .then(resolve)
       .catch((reason) => {
         if (retries > 0) {
-          return wait(delay)
+          wait(delay)
             .then(retry.bind(null, operation, delay, retries - 1))
             .then(resolve)
             .catch(reject);
+        } else {
+          reject(reason);
         }
-        return reject(reason);
       });
   });

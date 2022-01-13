@@ -1,9 +1,15 @@
-import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
+import { Request, Response, NextFunction } from "express";
+import jwt from "jsonwebtoken";
+
+enum Role {
+  Admin = 'admin',
+  User = 'user',
+}
 
 interface UserPayload {
   id: string;
   email: string;
+  role: Role;
 }
 
 declare global {
