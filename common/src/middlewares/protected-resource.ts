@@ -10,12 +10,14 @@ export const protectedResource = (roles: Array<Role> = []) => {
 
     const role = req.currentUser?.role;
 
-    console.log('> protectedResource', role, roles);
+    console.log('> protectedResource', req.currentUser, role, roles);
     
     if (!role || !roles.includes(role)) {
+      console.log('> forbidden');
       throw new ForbiddenError();
     }
 
+    console.log('> next');
     next();
   };
 };
