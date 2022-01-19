@@ -1,10 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-
-enum Role {
-  Admin = 'admin',
-  User = 'user',
-}
+import { Role } from "./types/roles";
 
 interface UserPayload {
   id: string;
