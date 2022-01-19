@@ -12,3 +12,9 @@ Microservice `feed` is the main part. It has range of connectors that subscripbe
 ## client
 
 Web client, it shows current platform's state. Allows admin to manage `feed` microservice.
+
+# Setup
+
+Root user
+
+`kubectl create secret generic root-user-secret --from-literal=USERNAME=username --from-literal=PASSWORD=password`

@@ -3,7 +3,7 @@ import { app } from "./app";
 import { natsWrapper } from "./nats-wrapper";
 import { OrderCreatedListener } from "./events/listeners/order-created-listener";
 import { OrderCancelledListener } from "./events/listeners/order-cancelled-listener";
-import { retry } from "@savtickets/common";
+import { retry } from "@savaim/common";
 
 const start = async () => {
   if (!process.env.JWT_KEY) {

@@ -1,14 +1,15 @@
+import { ExchangeStatus } from '@savaim/common';
 import mongoose from 'mongoose';
 import { updateIfCurrentPlugin } from 'mongoose-update-if-current';
 
 interface ExchangeAttrs {
   name: string;
-  status: string;
+  status: ExchangeStatus;
 }
 
 interface ExchangeDoc extends mongoose.Document {
   name: string;
-  status: string;
+  status: ExchangeStatus;
   version: number;
 }
 
@@ -25,6 +26,8 @@ const exchangeSchema = new mongoose.Schema(
     status: {
       type: String,
       required: true,
+      enum: Object.values(ExchangeStatus),
+      default: ExchangeStatus.Stopped,
     },
   },
   {
